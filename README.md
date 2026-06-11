@@ -170,10 +170,13 @@ git push -u origin main
 
 ```bash
 sudo apt update
-sudo apt install -y python3-pip python3-venv git docker.io docker-compose-plugin
+sudo apt install -y git docker.io docker-compose-v2
+sudo systemctl enable --now docker
+sudo usermod -aG docker $USER
+
 git clone https://github.com/sadirov-dev/food_delivery_api.git
 cd food_delivery_api
 cp .env.example .env
-docker compose up --build -d
+sudo docker compose up --build -d
 docker compose ps
 ```
